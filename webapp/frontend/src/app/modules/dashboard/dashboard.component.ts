@@ -245,7 +245,11 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy
         return deviceSummaries
     }
 
-    openDialog(): void {}
+    openDialog(): void {
+        const dialogRef = this.dialog.open(DashboardSettingsComponent, {width: '600px',});
+
+        dialogRef.afterClosed().subscribe(result => {});
+    }
 
     onDeviceDeleted(wwn: string): void {
         delete this.summaryData[wwn] // remove the device from the summary list.
